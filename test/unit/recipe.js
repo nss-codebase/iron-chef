@@ -24,7 +24,7 @@ describe('Recipe', function(){
 
   describe('constructor', function(){
     it('should create a new Recipe object', function(){
-      var r = new Recipe();
+      var r = new Recipe({name:'a', photo:'b', directions:'c', ingredients:'d,e,f'});
       expect(r).to.be.instanceof(Recipe);
     });
   });
