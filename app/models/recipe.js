@@ -1,11 +1,14 @@
 'use strict';
 
+var Mongo = require('mongodb');
+
 function Recipe(o){
   strip(o);
 
   this.name        = o.name        || 'Generic Recipe';
   this.photo       = o.photo       || '/img/recipe.jpg';
   this.directions  = o.directions  || '1. Clean Kitchen, 2. Get Food, 3. Cook, 4. Eat';
+  this.category    = o.category;
   this.ingredients = o.ingredients || 'Food, Water, Bacon';
   this.ingredients = this.ingredients.split(',').map(function(i){return i.trim();});
   this.created     = new Date();
@@ -22,6 +25,11 @@ Recipe.all = function(cb){
 Recipe.create = function(o, cb){
   var r = new Recipe(o);
   Recipe.collection.save(r, cb);
+};
+
+Recipe.destroy = function(id, cb){
+  var _id = Mongo.ObjectID(id);
+  Recipe.collection.remove({_id:_id}, cb);
 };
 
 module.exports = Recipe;

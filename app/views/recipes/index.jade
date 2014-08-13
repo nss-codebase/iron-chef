@@ -6,11 +6,24 @@ block content
       button.pink#hide Hide Form
       button.pink#show Show Form
     form(method='post', action='/recipes')
+      select(name='category')
+        option Breakfast
+        option Lunch
+        option Dinner
+        option Dessert
+        option Party
       input(name='name', type='text', placeholder='Chicken', autofocus=true)
       input(name='photo', type='text', placeholder='Image URL')
       input(name='ingredients', type='text', placeholder='chicken, water, eggs')
       textarea(name='directions')
       button.blue Add Recipe
+
+  ul#categories
+    li: a(href='#') Breakfast
+    li: a(href='#') Lunch
+    li: a(href='#') Dinner
+    li: a(href='#') Dessert
+    li: a(href='#') Party
 
   #recipes
     each recipe in recipes
