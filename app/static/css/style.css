@@ -1,13 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
-*{
-  font-family: 'Open Sans', sans-serif;
-  font-size: 13px;
-  margin: 0px;
-  padding: 0px;
-}
-
 body{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
   background-color: #AAAAAA;
 }
 
@@ -21,6 +16,7 @@ header h1{
 
 .recipe{
   display: inline-block;
+  vertical-align: top;
   width: 250px;
   border: 1px solid #111111;
   border-radius: 5px;
@@ -61,7 +57,7 @@ form{
   margin: 20px;
   padding: 10px;
   display: inline-block;
-  border: 1px solid #111111;
+  border: 1px dashed #111111;
 }
 
 form input, form button, form textarea{

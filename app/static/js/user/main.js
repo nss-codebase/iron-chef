@@ -12,12 +12,13 @@
         type = $('form').attr('method'),
         url  = $('form').attr('action');
 
-    // clearing form & hiding
     $('input, textarea').val('');
-    hide();
 
     $.ajax({url:url, type:type, data:data, dataType:'html', success:function(html){
-      $('#recipes').prepend(html);
+      var $recipe = $(html);
+      $recipe.css('display', 'none');
+      $('#recipes').prepend($recipe);
+      $recipe.fadeIn(2000);
     }});
 
     e.preventDefault();

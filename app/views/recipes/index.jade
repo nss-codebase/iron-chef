@@ -3,14 +3,14 @@ block content
 
   #controls
     #visibility
-      button#hide Hide Form
-      button#show Show Form
+      button.pink#hide Hide Form
+      button.pink#show Show Form
     form(method='post', action='/recipes')
       input(name='name', type='text', placeholder='Chicken', autofocus=true)
       input(name='photo', type='text', placeholder='Image URL')
       input(name='ingredients', type='text', placeholder='chicken, water, eggs')
       textarea(name='directions')
-      button Add Recipe
+      button.blue Add Recipe
 
   #recipes
     each recipe in recipes

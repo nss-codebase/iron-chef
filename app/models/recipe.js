@@ -1,10 +1,14 @@
 'use strict';
 
 function Recipe(o){
-  this.name        = o.name;
-  this.photo       = o.photo;
-  this.directions  = o.directions;
-  this.ingredients = o.ingredients.split(',').map(function(i){return i.trim();});
+  strip(o);
+
+  this.name        = o.name        || 'Generic Recipe';
+  this.photo       = o.photo       || '/img/recipe.jpg';
+  this.directions  = o.directions  || '1. Clean Kitchen, 2. Get Food, 3. Cook, 4. Eat';
+  this.ingredients = o.ingredients || 'Food, Water, Bacon';
+  this.ingredients = this.ingredients.split(',').map(function(i){return i.trim();});
+  this.created     = new Date();
 }
 
 Object.defineProperty(Recipe, 'collection', {
@@ -12,7 +16,7 @@ Object.defineProperty(Recipe, 'collection', {
 });
 
 Recipe.all = function(cb){
-  Recipe.collection.find().toArray(cb);
+  Recipe.collection.find().sort({created:-1}).toArray(cb);
 };
 
 Recipe.create = function(o, cb){
@@ -21,4 +25,16 @@ Recipe.create = function(o, cb){
 };
 
 module.exports = Recipe;
+
+// PRIVATE FUNCTIONS ///
+
+function strip(o){
+  // stripping leading and following spaces from all properties inside of o that are strings
+  var properties = Object.keys(o);
+  properties.forEach(function(property){
+    if(typeof o[property] === 'string'){
+      o[property] = o[property].trim();
+    }
+  });
+}
 
