@@ -48,10 +48,6 @@ header h1{
   padding: 5px;
 }
 
-.recipe .category{
-  color: red;
-}
-
 .recipe .ingredients li{
   position: relative;
   left: 20px;
