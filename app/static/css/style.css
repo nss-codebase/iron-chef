@@ -3,7 +3,7 @@
 body{
   font-family: 'Open Sans', sans-serif;
   font-size: 11px;
-  background-color: #AAAAAA;
+  background-color: #EEEEEE;
 }
 
 header{
@@ -25,10 +25,17 @@ header h1{
 }
 
 .recipe .photo{
+  position: relative;
   height: 300px;
   background-size: cover;
   border-bottom: 1px solid #111111;
   margin-bottom: 10px;
+}
+
+.recipe .photo button{
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .recipe .name{

@@ -5,7 +5,12 @@
     $('#hide').click(hide);
     $('#show').click(show);
     $('form').submit(addRecipe);
+    $('#recipes').on('click', '.delete', delRecipe);
   });
+
+  function delRecipe(){
+    alert('you clicked del button');
+  }
 
   function addRecipe(e){
     var data = $('form').serialize(),
